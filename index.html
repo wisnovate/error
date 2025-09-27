@@ -63,14 +63,14 @@
         .logo-left {
             width: 200px;
             height: 120px;
-            margin-right: auto; /* 向左移动 */
-            margin-left: -10px; /* 再向左移动一丢丢 */
+            margin-right: auto;
+            margin-left: -10px;
         }
         
         .logo-right {
             width: 150px;
             height: 100px;
-            margin-left: auto; /* 保持右侧位置 */
+            margin-left: auto;
         }
         
         .logo {
@@ -90,7 +90,7 @@
             position: absolute;
             left: 50%;
             top: 50%;
-            transform: translate(-50%, -50%); /* 精确居中 */
+            transform: translate(-50%, -50%);
             z-index: 10;
         }
         
@@ -139,16 +139,29 @@
                 margin-bottom: 30px;
             }
             
-            .logo-left, .logo-right {
-                width: 180px;
+            .logo-left {
+                width: 220px; /* 移动端上方logo保持放大 */
+                height: 130px;
+                margin: 0;
+            }
+            
+            .logo-right {
+                width: 200px; /* 移动端下方logo缩小 */
                 height: 100px;
-                margin: 0; /* 移动端重置边距 */
+                margin: 0;
             }
             
             .warning-icon {
                 position: static;
                 transform: none;
-                order: 2; /* 在移动端将警示标志放在中间 */
+                order: 2;
+                width: 70px;
+                height: 70px;
+            }
+            
+            .warning-icon svg {
+                width: 40px;
+                height: 40px;
             }
             
             .logo-left {
@@ -168,22 +181,29 @@
             }
         }
         
-        @media (max-width: 400px) {
+        @media (max-width: 500px) {
+            .logo-left {
+                width: 220px; /* 在更小的屏幕上上方logo进一步放大 */
+                height: 130px;
+            }
+            
+            .logo-right {
+                width: 200px; /* 在更小的屏幕上下方logo进一步缩小 */
+                height: 100px;
+            }
+            
             h1, .english-text {
                 white-space: normal;
             }
-            
-            .logo-left, .logo-right {
-                width: 150px;
-                height: 80px;
-            }
         }
+        
+        /* 已删除400px及以下的媒体查询 */
     </style>
 </head>
 <body>
     <div class="error-container">
         <div class="icons-container">
-            <!-- 第一个logo（放大并左移） -->
+            <!-- 第一个logo（移动端上方logo保持放大） -->
             <div class="logo-container logo-left">
                 <img src="https://s21.ax1x.com/2025/08/26/pVyTTot.png" alt="Logo" class="logo">
             </div>
@@ -195,7 +215,7 @@
                 </svg>
             </div>
             
-            <!-- 第二个logo -->
+            <!-- 第二个logo（移动端下方logo缩小） -->
             <div class="logo-container logo-right">
                 <img src="https://s21.ax1x.com/2025/08/12/pVwFbuT.png" alt="Logo" class="logo">
             </div>
